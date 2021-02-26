@@ -1,0 +1,17 @@
+name: ws_echo
+version: 0.1.0
+
+authors:
+  - Peter Wood <pw0470@gmail.com>
+
+dependencies:
+  kemal:
+    github: kemalcr/kemal
+
+targets:
+  ws_echo:
+    main: src/ws_echo.cr
+
+crystal: 0.36.1
+
+license: MIT

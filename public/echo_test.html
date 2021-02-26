@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Echo Test</title>
+</head>
+
+<body>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            let socket = null;
+
+            console.log("Running echo test.");
+            socket = new WebSocket("ws://omnipeon.com/");
+
+            socket.onclose = () => {
+                console.log("Web socket was closed.");
+            };
+            socket.onerror = (cause) => {
+                console.error(`ERROR: ${cause}`);
+            };
+            socket.onmessage = (event) => {
+                console.log(`Received: ${event.data}`);
+            };
+            socket.onopen = () => {
+                console.log("Web socket successfully opened. Starting send.");
+                setTimeout(() => {
+                    socket.send("This is the first message.");
+                }, 1000);
+                setTimeout(() => {
+                    socket.send("This is the second message.");
+                }, 2000);
+                setTimeout(() => {
+                    socket.send("This is the third message.");
+                }, 3000);
+                setTimeout(() => {
+                    socket.send("This is the fourth message.");
+                }, 4000);
+                setTimeout(() => {
+                    console.log("Closing the web socket connection.");
+                    socket.close();
+                }, 5000);
+            };
+        });
+    </script>
+</body>
+</html>
