@@ -14,7 +14,7 @@
             let socket = null;
 
             console.log("Running echo test.");
-            socket = new WebSocket("ws://omnipeon.com/");
+            socket = new WebSocket("ws://omnipeon.com/ws");
 
             socket.onclose = () => {
                 console.log("Web socket was closed.");
