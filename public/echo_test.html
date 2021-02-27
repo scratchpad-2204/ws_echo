@@ -28,15 +28,19 @@
             socket.onopen = () => {
                 console.log("Web socket successfully opened. Starting send.");
                 setTimeout(() => {
+                    console.log("Sending the first message");
                     socket.send("This is the first message.");
                 }, 1000);
                 setTimeout(() => {
+                    console.log("Sending the second message");
                     socket.send("This is the second message.");
                 }, 2000);
                 setTimeout(() => {
+                    console.log("Sending the third message");
                     socket.send("This is the third message.");
                 }, 3000);
                 setTimeout(() => {
+                    console.log("Sending the fourth message");
                     socket.send("This is the fourth message.");
                 }, 4000);
                 setTimeout(() => {
